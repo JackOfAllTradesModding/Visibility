@@ -1,10 +1,6 @@
 ScriptName VIS_MCM Extends SKI_ConfigBase
 {MCM for Visibility}
 
-GlobalVariable Property DetectLifeTog Auto;
-GlobalVariable Property DetectDeadTog Auto;
-GlobalVariable Property DetectOtherTog Auto;
-
 Bool Property bLife Auto;
 Bool Property bDead Auto;
 Bool Property bOther Auto;
@@ -45,16 +41,12 @@ State DetectLife
 
 	Event OnSelectST()
 		bLife = !bLife;
-		If (bLife)
-			DetectLifeTog.SetValue(1)
-		Else
-			DetectLifeTog.SetValue(0)
-		EndIf
+		SetToggleOptionValueST(bLife);
 	EndEvent
 	
 	Event OnDefaultST()
 		bLife = True;
-		DetectLifeTog.SetValue(1)
+		SetToggleOptionValueST(bDead);
 	EndEvent
 	
 	Event OnHighlightST()
@@ -67,16 +59,12 @@ State DetectDead
 
 	Event OnSelectST()
 		bDead = !bDead;
-		If (bDead)
-			DetectDeadTog.SetValue(1)
-		Else
-			DetectDeadTog.SetValue(0)
-		EndIf
+		SetToggleOptionValueST(bDead);
 	EndEvent
 	
 	Event OnDefaultST()
 		bDead = True;
-		DetectDeadTog.SetValue(1)
+		SetToggleOptionValueST(bDead);
 	EndEvent
 	
 	Event OnHighlightST()
@@ -89,16 +77,12 @@ State DetectOther
 
 	Event OnSelectST()
 		bOther = !bOther;
-		If (bOther)
-			DetectOtherTog.SetValue(1)
-		Else
-			DetectOtherTog.SetValue(0)
-		EndIf
+		SetToggleOptionValueST(bOther);
 	EndEvent
 	
 	Event OnDefaultST()
 		bOther = True;
-		DetectOtherTog.SetValue(1)
+		SetToggleOptionValueST(bOther);
 	EndEvent
 	
 	Event OnHighlightST()
