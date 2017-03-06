@@ -1,4 +1,4 @@
-Scriptname vis_Wrapper extends activemagiceffect  
+Scriptname vis_Util extends Quest  
 {Handles the "magic." Ha Ha Ha. I entertain myself.}
 
 Spell Property vis_LifeWrapperSpell Auto
@@ -17,17 +17,6 @@ MagicEffect Property vis_UndeadFriendInt Auto
 Actor Property PlayerREF Auto
 
 vis_MCM Property config Auto
-
-Event OnEffectStart(Actor akTarget, Actor akCaster)
-
-	StartSpells();
-	
-EndEvent
-
-Event OnEffectFinish(Actor akTarget, Actor akCaster)
-	PlayerREF.DispelSpell(vis_LifeWrapperSpell)
-	PlayerREF.DispelSpell(vis_DeadWrapperSpell)
-EndEvent 
 
 Function StartSpells()
 	If (config.bLife)
